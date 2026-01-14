@@ -33,7 +33,7 @@ const CITIES = {
 const UNIVERSITIES = [
     // --- ANKARA ---
     // GÜNCELLENDİ: Hacettepe Rektörlük Binası Koordinatları
-    { id: 1, name: "Hacettepe (Beytepe)", city: "ankara", lat: 39.8676, lng: 32.7346 },
+    { id: 1, name: "Hacettepe (Beytepe)", city: "ankara", lat: 39.86755589812846, lng: 32.73431883285708 },
     { id: 2, name: "ODTÜ", city: "ankara", lat: 39.891, lng: 32.776 },
     { id: 3, name: "Bilkent", city: "ankara", lat: 39.869, lng: 32.749 },
     { id: 4, name: "Ankara Üni (Tandoğan)", city: "ankara", lat: 39.935, lng: 32.831 },
