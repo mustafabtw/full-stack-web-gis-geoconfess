@@ -202,3 +202,66 @@ body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color
     margin-bottom: 5px;
     pointer-events: none;
 }
+
+/* --- MOBİL UYUMLULUK (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    /* Ana Düzen: Dikey Sıralama (Harita Üstte, Panel Altta) */
+    .app-wrapper {
+        flex-direction: column-reverse; /* Tersi çevir ki Harita yukarı gelsin */
+    }
+
+    /* Harita Alanı - Ekranın %55'i */
+    .map-container {
+        height: 55vh !important;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+    }
+    
+    /* Yan Panel (Liste) - Ekranın %45'i */
+    .sidebar {
+        width: 100%;
+        height: 45vh;
+        border-right: none;
+        border-top: 4px solid #333; /* Tutamaç gibi görünsün */
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Giriş Ekranı (Login) Mobilde Taşmasın */
+    .login-card {
+        width: 85%;
+        padding: 25px;
+        margin: auto;
+    }
+    
+    /* Google Butonu Mobilde Düzgün Dursun */
+    .google-btn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    /* İtiraf Yazma Modalı */
+    .modal-card {
+        width: 90%; /* Mobilde tam genişlik */
+        bottom: 20px; /* Aşağıdan çıksın */
+    }
+
+    /* Filtre Butonları Parmakla Basmaya Uygun Olsun */
+    .filter-btn {
+        padding: 10px 5px;
+        font-size: 0.9rem;
+    }
+    
+    /* Başlık Alanı */
+    .brand {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Listeyi Kaydırılabilir Yap */
+    .feed-list {
+        overscroll-behavior: contain; /* Sayfayı yenilemeyi engelle */
+    }
+}
