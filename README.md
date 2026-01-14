@@ -1,5 +1,7 @@
 # GeoConfess: Web-GIS Based Spatio-Temporal Campus Social Network
 
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Open_App-2ea44f?style=for-the-badge&logo=vercel)](https://full-stack-web-gis-geoconfess.vercel.app)
+
 ![Project Status](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 ![Tech Stack](https://img.shields.io/badge/Stack-FullStack-orange)
@@ -14,7 +16,7 @@ This project serves as a proof-of-concept for modern **Volunteered Geographic In
 ### 1. Spatial Visualization & GIS Integration
 * **Dynamic Mapping:** Built on **Leaflet.js**, offering interactive map manipulation.
 * **Heatmap Layers:** Real-time spatial clustering and density visualization of user activities using `leaflet.heat`.
-* **Radar UI:** Custom CSS animations for visualizing active campus nodes.
+* **Radar UI:** Custom CSS animations (Pulse Effect) for visualizing active campus nodes instead of static markers.
 * **Geolocation API:** Integrated `navigator.geolocation` for precise user positioning and "Fly-to-Location" functionality.
 
 ### 2. Data Management & Backend
@@ -35,7 +37,7 @@ This project serves as a proof-of-concept for modern **Volunteered Geographic In
 | Component | Technology | Description |
 | :--- | :--- | :--- |
 | **Frontend** | HTML5, CSS3, JavaScript (ES6+) | Core application logic and UI. |
-| **Mapping Engine** | Leaflet.js | Open-source JavaScript library for mobile-friendly interactive maps. |
+| **Mapping Engine** | Leaflet.js | Open-source JavaScript library for interactive maps. |
 | **Backend / DB** | Firebase Firestore | NoSQL cloud database for storing geotagged JSON data. |
 | **Auth** | Firebase Auth | Google OAuth 2.0 & Anonymous Login handling. |
 | **Deployment** | Vercel | CI/CD pipeline and static hosting. |
