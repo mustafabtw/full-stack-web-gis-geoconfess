@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoConfess | Firebase Realtime</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="auth-modal" class="modal-backdrop">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fa-solid fa-fire logo-icon" style="color:#FFCA28"></i>
+                <h2>GeoConfess</h2>
+                <small>Canlı Kampüs Ağı</small>
+            </div>
+
+            <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">
+                Gerçek zamanlı veri akışı için giriş yapın.
+            </p>
+
+            <button onclick="loginWithGoogle()" class="google-btn">
+                <i class="fa-brands fa-google"></i> Google ile Giriş Yap
+            </button>
+            
+            <div class="divider">veya</div>
+
+            <button onclick="loginAnonymously()" class="secondary-btn">
+                <i class="fa-solid fa-user-secret"></i> Misafir Olarak Gir
+            </button>
+        </div>
+    </div>
+
+    <div class="app-wrapper blur-bg" id="main-app">
+        <aside class="sidebar">
+            <div class="brand">
+                <span>GeoConfess</span>
+                <div class="user-profile-badge">
+                    <img id="u-avatar" src="" class="hidden" alt="Avatar">
+                    <i id="u-icon" class="fa-solid fa-user"></i>
+                    <span id="u-name">...</span>
+                    <button onclick="logout()" class="logout-btn" title="Çıkış"><i class="fa-solid fa-right-from-bracket"></i></button>
+                </div>
+            </div>
+
+            <div style="padding: 10px 20px; border-bottom: 1px solid #333;">
+                <button onclick="locateUser()" class="secondary-btn" style="font-size:0.85rem; width:100%;">
+                    <i class="fa-solid fa-crosshairs"></i> Konumumu Bul
+                </button>
+            </div>
+            
+            <div id="back-btn-area" class="nav-area hidden">
+                <button onclick="resetToTurkey()" class="back-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Türkiye Haritası
+                </button>
+            </div>
+
+            <div class="filter-area">
+                <small>Filtreler:</small>
+                <div class="filter-buttons">
+    <button class="filter-btn active" onclick="toggleFilter('all')" id="btn-all" data-title="Tüm İtiraflar">Tümü</button>
+    <button class="filter-btn ask" onclick="toggleFilter('ask')" id="btn-ask" data-title="Aşk & İlan-ı Aşk"><i class="fa-solid fa-heart"></i></button>
+    <button class="filter-btn sikayet" onclick="toggleFilter('sikayet')" id="btn-sikayet" data-title="Şikayet & Sorunlar"><i class="fa-solid fa-bolt"></i></button>
+    <button class="filter-btn itiraf" onclick="toggleFilter('itiraf')" id="btn-itiraf" data-title="Gizli İtiraflar"><i class="fa-solid fa-user-secret"></i></button>
+</div>
+            </div>
+
+            <div class="feed-header">
+                <h4 id="feed-title">Canlı Akış</h4>
+                <div class="heatmap-toggle">
+                    <label for="heatmap-check">Isı Haritası</label>
+                    <input type="checkbox" id="heatmap-check" onchange="toggleHeatmap()">
+                </div>
+            </div>
+
+            <div id="feed-list" class="feed-list">
+                <div class="empty-state">Yükleniyor...</div>
+            </div>
+        </aside>
+
+        <main class="map-container">
+            <div id="map"></div>
+        </main>
+    </div>
+
+    <div id="confess-modal" class="modal-backdrop hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="target-uni-name">📍 Konum</h3>
+                <button onclick="closeModal()" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="category-selector">
+                    <label class="cat-opt ask"><input type="radio" name="cat" value="ask" checked> ❤️ Aşk</label>
+                    <label class="cat-opt sikayet"><input type="radio" name="cat" value="sikayet"> 😡 Sorun</label>
+                    <label class="cat-opt itiraf"><input type="radio" name="cat" value="itiraf"> 🤫 İtiraf</label>
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">Tam Konum</label>
+                    <input type="text" id="location-detail" class="standard-input" placeholder="Örn: Kütüphane önü...">
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">İtirafın</label>
+                    <textarea id="confess-text" class="standard-input" rows="3" placeholder="İçini dök..."></textarea>
+                </div>
+
+                <div class="coords-display" id="coords-text">Lat: - Lng: -</div>
+                <button onclick="submitConfession()" class="submit-btn">Buluta Gönder ☁️</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
