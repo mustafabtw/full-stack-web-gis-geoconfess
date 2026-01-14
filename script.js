@@ -32,7 +32,8 @@ const CITIES = {
 
 const UNIVERSITIES = [
     // --- ANKARA ---
-    { id: 1, name: "Hacettepe (Beytepe)", city: "ankara", lat: 39.866, lng: 32.748 },
+    // GÜNCELLENDİ: Hacettepe Rektörlük Binası Koordinatları
+    { id: 1, name: "Hacettepe (Beytepe)", city: "ankara", lat: 39.8676, lng: 32.7346 },
     { id: 2, name: "ODTÜ", city: "ankara", lat: 39.891, lng: 32.776 },
     { id: 3, name: "Bilkent", city: "ankara", lat: 39.869, lng: 32.749 },
     { id: 4, name: "Ankara Üni (Tandoğan)", city: "ankara", lat: 39.935, lng: 32.831 },
@@ -216,7 +217,7 @@ function enterCity(key) {
     subscribeToCity(key);
 }
 
-// --- GPS FONKSİYONU (DÜZELTİLDİ: GERİ DÖN BUTONUNU AÇIYOR) ---
+// --- GPS FONKSİYONU ---
 function locateUser() {
     if (!navigator.geolocation) {
         alert("Tarayıcınız konum özelliğini desteklemiyor.");
@@ -237,8 +238,7 @@ function locateUser() {
                 color: '#3388ff', fillColor: '#3388ff', fillOpacity: 0.5, radius: 50
             }).addTo(map).bindPopup("Sen Buradasın!").openPopup();
 
-            // *** YENİ EKLENEN KISIM ***
-            // Türkiye haritasına dön butonunu açıyoruz ki kullanıcı geri dönebilsin
+            // Geri dön butonunu aç
             document.getElementById('back-btn-area').classList.remove('hidden');
             document.getElementById('feed-title').innerText = "📍 Sizin Konumunuz";
         },
@@ -430,15 +430,19 @@ function toggleLike(docId, event) {
     docRef.update({ likes: firebase.firestore.FieldValue.increment(1) });
 }
 
+// --- FİLTRELEME BUTONU ---
 function toggleFilter(f) { 
     activeFilter = f; 
+    
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); 
     document.getElementById(`btn-${f}`).classList.add('active'); 
     
+    // Hangi moddaysak onu yenile
     if(currentCityKey) {
         subscribeToCity(currentCityKey);
     } else {
-        subscribeToAll();
+        subscribeToAll(); // Türkiye genelindeyken de listeyi yenile
+        
         // Başlığı güncelle
         let filterText = activeFilter === 'all' ? '' : (activeFilter === 'ask' ? '(Aşk)' : (activeFilter === 'sikayet' ? '(Şikayet)' : '(İtiraf)'));
         document.getElementById('feed-title').innerText = `🔥 Türkiye Geneli ${filterText}`;
