@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoConfess | Firebase Realtime</title>
+    <title>GeoConfess | Hacettepe Engineering</title> 
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.freepik.com/256/8232/8232439.png?semt=ais_white_label">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
@@ -15,31 +17,25 @@
     <div id="auth-modal" class="modal-backdrop">
         <div class="login-card">
             <div class="login-header">
-                <i class="fa-solid fa-fire logo-icon" style="color:#FFCA28"></i>
+                <img src="https://cdn-icons-png.freepik.com/256/8232/8232439.png?semt=ais_white_label" class="login-logo-img" alt="GeoConfess Logo">
                 <h2>GeoConfess</h2>
                 <small>Canlı Kampüs Ağı</small>
             </div>
-
-            <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">
-                Gerçek zamanlı veri akışı için giriş yapın.
-            </p>
-
-            <button onclick="loginWithGoogle()" class="google-btn">
-                <i class="fa-brands fa-google"></i> Google ile Giriş Yap
-            </button>
-            
+            <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">Gerçek zamanlı veri akışı için giriş yapın.</p>
+            <button onclick="loginWithGoogle()" class="google-btn"><i class="fa-brands fa-google"></i> Google ile Giriş Yap</button>
             <div class="divider">veya</div>
-
-            <button onclick="loginAnonymously()" class="secondary-btn">
-                <i class="fa-solid fa-user-secret"></i> Misafir Olarak Gir
-            </button>
+            <button onclick="loginAnonymously()" class="secondary-btn"><i class="fa-solid fa-user-secret"></i> Misafir Olarak Gir</button>
         </div>
     </div>
 
     <div class="app-wrapper blur-bg" id="main-app">
         <aside class="sidebar">
             <div class="brand">
-                <span>GeoConfess</span>
+                <div style="display:flex; align-items:center;">
+                    <img src="https://cdn-icons-png.freepik.com/256/8232/8232439.png?semt=ais_white_label" class="sidebar-logo" alt="logo">
+                    <span style="font-weight:800; letter-spacing:1px; background: -webkit-linear-gradient(45deg, #00d2d3, #fff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">GeoConfess</span>
+                </div>
+
                 <div class="user-profile-badge">
                     <img id="u-avatar" src="" class="hidden" alt="Avatar">
                     <i id="u-icon" class="fa-solid fa-user"></i>
@@ -48,26 +44,27 @@
                 </div>
             </div>
 
-            <div style="padding: 10px 20px; border-bottom: 1px solid #333;">
-                <button onclick="locateUser()" class="secondary-btn" style="font-size:0.85rem; width:100%;">
-                    <i class="fa-solid fa-crosshairs"></i> Konumumu Bul
+            <div style="padding: 10px 20px; border-bottom: 1px solid #333; display:flex; gap:10px;">
+                <button onclick="locateUser()" class="secondary-btn" style="font-size:0.85rem; flex:1;">
+                    <i class="fa-solid fa-crosshairs"></i> Konum
+                </button>
+                <button onclick="openCredits()" class="secondary-btn" style="width: auto; padding: 0 15px;" title="Proje Künyesi">
+                    <i class="fa-solid fa-circle-info"></i>
                 </button>
             </div>
             
             <div id="back-btn-area" class="nav-area hidden">
-                <button onclick="resetToTurkey()" class="back-btn">
-                    <i class="fa-solid fa-arrow-left"></i> Türkiye Haritası
-                </button>
+                <button onclick="resetToTurkey()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Türkiye Haritası</button>
             </div>
 
             <div class="filter-area">
                 <small>Filtreler:</small>
                 <div class="filter-buttons">
-    <button class="filter-btn active" onclick="toggleFilter('all')" id="btn-all" data-title="Tüm İtiraflar">Tümü</button>
-    <button class="filter-btn ask" onclick="toggleFilter('ask')" id="btn-ask" data-title="Aşk & İlan-ı Aşk"><i class="fa-solid fa-heart"></i></button>
-    <button class="filter-btn sikayet" onclick="toggleFilter('sikayet')" id="btn-sikayet" data-title="Şikayet & Sorunlar"><i class="fa-solid fa-bolt"></i></button>
-    <button class="filter-btn itiraf" onclick="toggleFilter('itiraf')" id="btn-itiraf" data-title="Gizli İtiraflar"><i class="fa-solid fa-user-secret"></i></button>
-</div>
+                    <button class="filter-btn active" onclick="toggleFilter('all')" id="btn-all" data-title="Tüm İtiraflar">Tümü</button>
+                    <button class="filter-btn ask" onclick="toggleFilter('ask')" id="btn-ask" data-title="Aşk"><i class="fa-solid fa-heart"></i></button>
+                    <button class="filter-btn sikayet" onclick="toggleFilter('sikayet')" id="btn-sikayet" data-title="Sorun"><i class="fa-solid fa-bolt"></i></button>
+                    <button class="filter-btn itiraf" onclick="toggleFilter('itiraf')" id="btn-itiraf" data-title="İtiraf"><i class="fa-solid fa-user-secret"></i></button>
+                </div>
             </div>
 
             <div class="feed-header">
@@ -91,29 +88,54 @@
     <div id="confess-modal" class="modal-backdrop hidden">
         <div class="modal-card">
             <div class="modal-header">
-                <h3 id="target-uni-name">📍 Konum</h3>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <img id="modal-uni-logo" class="modal-logo hidden" src="" alt="logo">
+                    <h3 id="target-uni-name">📍 Konum</h3>
+                </div>
                 <button onclick="closeModal()" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            
             <div class="modal-body">
                 <div class="category-selector">
                     <label class="cat-opt ask"><input type="radio" name="cat" value="ask" checked> ❤️ Aşk</label>
                     <label class="cat-opt sikayet"><input type="radio" name="cat" value="sikayet"> 😡 Sorun</label>
                     <label class="cat-opt itiraf"><input type="radio" name="cat" value="itiraf"> 🤫 İtiraf</label>
                 </div>
-
                 <div class="form-group">
                     <label class="input-label">Tam Konum</label>
                     <input type="text" id="location-detail" class="standard-input" placeholder="Örn: Kütüphane önü...">
                 </div>
-
                 <div class="form-group">
                     <label class="input-label">İtirafın</label>
                     <textarea id="confess-text" class="standard-input" rows="3" placeholder="İçini dök..."></textarea>
                 </div>
-
                 <div class="coords-display" id="coords-text">Lat: - Lng: -</div>
                 <button onclick="submitConfession()" class="submit-btn">Buluta Gönder ☁️</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="credits-modal" class="modal-backdrop hidden">
+        <div class="modal-card" style="text-align: center;">
+            <div class="modal-header" style="justify-content: flex-end;">
+                <button onclick="closeCredits()" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" style="padding-top:0;">
+                
+                <img src="https://cdn-icons-png.freepik.com/256/8232/8232439.png?semt=ais_white_label" class="credits-logo" alt="GeoConfess Logo">
+                
+                <h2 style="color:white; margin-bottom:5px;">GeoConfess</h2>
+                <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">Web-GIS Tabanlı Kampüs Sosyal Ağı</p>
+                
+                <div style="background:#25252e; padding:15px; border-radius:10px; text-align:left; font-size:0.9rem; border:1px solid #333;">
+                    <p><strong style="color:#00d2d3">Geliştirici:</strong> Mustafa Baran</p>
+                    <p><strong style="color:#00d2d3">Bölüm:</strong> Harita Mühendisliği</p>
+                    <p><strong style="color:#00d2d3">Üniversite:</strong> Hacettepe Üniversitesi</p>
+                    <p><strong style="color:#00d2d3">Teknolojiler:</strong> Leaflet.js, Firebase, NoSQL</p>
+                </div>
+
+                <div style="margin-top:20px; font-size:0.8rem; color:#555;">
+                    &copy; 2025-2026 Academic Project
+                </div>
             </div>
         </div>
     </div>
@@ -121,10 +143,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
-    
     <script src="script.js"></script>
 </body>
 </html>

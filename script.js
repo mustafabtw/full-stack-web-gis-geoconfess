@@ -30,36 +30,36 @@ const CITIES = {
     izmir: { name: "İzmir", coords: [38.423, 27.142], zoom: 12 }
 };
 
+// --- ÜNİVERSİTELER (GOOGLE ICONS) ---
 const UNIVERSITIES = [
     // --- ANKARA ---
-    // GÜNCELLENDİ: Hacettepe Rektörlük Binası Koordinatları
-    { id: 1, name: "Hacettepe (Beytepe)", city: "ankara", lat: 39.86755589812846, lng: 32.73431883285708 },
-    { id: 2, name: "ODTÜ", city: "ankara", lat: 39.891, lng: 32.776 },
-    { id: 3, name: "Bilkent", city: "ankara", lat: 39.869, lng: 32.749 },
-    { id: 4, name: "Ankara Üni (Tandoğan)", city: "ankara", lat: 39.935, lng: 32.831 },
-    { id: 5, name: "Gazi Üniversitesi", city: "ankara", lat: 39.936, lng: 32.823 },
-    { id: 6, name: "Başkent Üniversitesi", city: "ankara", lat: 39.888, lng: 32.651 },
-    { id: 7, name: "TOBB ETÜ", city: "ankara", lat: 39.921, lng: 32.798 },
-    { id: 8, name: "AYBÜ (Etlik)", city: "ankara", lat: 39.972, lng: 32.839 },
+    { id: 1, name: "Hacettepe (Beytepe)", city: "ankara", lat: 39.8676, lng: 32.7346, logo: "https://www.google.com/s2/favicons?domain=hacettepe.edu.tr&sz=64" },
+    { id: 2, name: "ODTÜ", city: "ankara", lat: 39.891, lng: 32.776, logo: "https://www.google.com/s2/favicons?domain=metu.edu.tr&sz=64" },
+    { id: 3, name: "Bilkent", city: "ankara", lat: 39.869, lng: 32.749, logo: "https://www.google.com/s2/favicons?domain=bilkent.edu.tr&sz=64" },
+    { id: 4, name: "Ankara Üni (Tandoğan)", city: "ankara", lat: 39.935, lng: 32.831, logo: "https://www.google.com/s2/favicons?domain=ankara.edu.tr&sz=64" },
+    { id: 5, name: "Gazi Üniversitesi", city: "ankara", lat: 39.936, lng: 32.823, logo: "https://www.google.com/s2/favicons?domain=gazi.edu.tr&sz=64" },
+    { id: 6, name: "Başkent Üniversitesi", city: "ankara", lat: 39.888, lng: 32.651, logo: "https://www.google.com/s2/favicons?domain=baskent.edu.tr&sz=64" },
+    { id: 7, name: "TOBB ETÜ", city: "ankara", lat: 39.921, lng: 32.798, logo: "https://www.google.com/s2/favicons?domain=etu.edu.tr&sz=64" },
+    { id: 8, name: "AYBÜ (Etlik)", city: "ankara", lat: 39.972, lng: 32.839, logo: "https://www.google.com/s2/favicons?domain=aybu.edu.tr&sz=64" },
     
     // --- İSTANBUL ---
-    { id: 10, name: "İTÜ (Ayazağa)", city: "istanbul", lat: 41.106, lng: 29.024 },
-    { id: 11, name: "Boğaziçi (Güney)", city: "istanbul", lat: 41.083, lng: 29.050 },
-    { id: 12, name: "Yıldız Teknik (Davutpaşa)", city: "istanbul", lat: 41.026, lng: 28.889 },
-    { id: 13, name: "İstanbul Üni (Beyazıt)", city: "istanbul", lat: 41.011, lng: 28.963 },
-    { id: 14, name: "Marmara (Göztepe)", city: "istanbul", lat: 40.988, lng: 29.052 },
-    { id: 15, name: "Koç Üniversitesi", city: "istanbul", lat: 41.205, lng: 29.072 },
-    { id: 16, name: "Sabancı Üniversitesi", city: "istanbul", lat: 40.891, lng: 29.378 },
-    { id: 17, name: "Yeditepe Üniversitesi", city: "istanbul", lat: 40.970, lng: 29.151 },
-    { id: 18, name: "Galatasaray Üni", city: "istanbul", lat: 41.047, lng: 29.022 },
+    { id: 10, name: "İTÜ (Ayazağa)", city: "istanbul", lat: 41.106, lng: 29.024, logo: "https://www.google.com/s2/favicons?domain=itu.edu.tr&sz=64" },
+    { id: 11, name: "Boğaziçi (Güney)", city: "istanbul", lat: 41.083, lng: 29.050, logo: "https://www.google.com/s2/favicons?domain=boun.edu.tr&sz=64" },
+    { id: 12, name: "Yıldız Teknik", city: "istanbul", lat: 41.026, lng: 28.889, logo: "https://www.google.com/s2/favicons?domain=yildiz.edu.tr&sz=64" },
+    { id: 13, name: "İstanbul Üni", city: "istanbul", lat: 41.011, lng: 28.963, logo: "https://www.google.com/s2/favicons?domain=istanbul.edu.tr&sz=64" },
+    { id: 14, name: "Marmara", city: "istanbul", lat: 40.988, lng: 29.052, logo: "https://www.google.com/s2/favicons?domain=marmara.edu.tr&sz=64" },
+    { id: 15, name: "Koç Üniversitesi", city: "istanbul", lat: 41.205, lng: 29.072, logo: "https://www.google.com/s2/favicons?domain=ku.edu.tr&sz=64" },
+    { id: 16, name: "Sabancı", city: "istanbul", lat: 40.891, lng: 29.378, logo: "https://www.google.com/s2/favicons?domain=sabanciuniv.edu&sz=64" },
+    { id: 17, name: "Yeditepe", city: "istanbul", lat: 40.970, lng: 29.151, logo: "https://www.google.com/s2/favicons?domain=yeditepe.edu.tr&sz=64" },
+    { id: 18, name: "Galatasaray", city: "istanbul", lat: 41.047, lng: 29.022, logo: "https://www.google.com/s2/favicons?domain=gsu.edu.tr&sz=64" },
     
     // --- İZMİR ---
-    { id: 20, name: "Ege Üniversitesi", city: "izmir", lat: 38.455, lng: 27.226 },
-    { id: 21, name: "Dokuz Eylül (Tınaztepe)", city: "izmir", lat: 38.370, lng: 27.202 },
-    { id: 22, name: "İYTE (Urla)", city: "izmir", lat: 38.323, lng: 26.634 },
-    { id: 23, name: "İzmir Ekonomi", city: "izmir", lat: 38.389, lng: 27.058 },
-    { id: 24, name: "Yaşar Üniversitesi", city: "izmir", lat: 38.454, lng: 27.200 },
-    { id: 25, name: "Katip Çelebi", city: "izmir", lat: 38.495, lng: 27.027 }
+    { id: 20, name: "Ege Üniversitesi", city: "izmir", lat: 38.455, lng: 27.226, logo: "https://www.google.com/s2/favicons?domain=ege.edu.tr&sz=64" },
+    { id: 21, name: "Dokuz Eylül", city: "izmir", lat: 38.370, lng: 27.202, logo: "https://www.google.com/s2/favicons?domain=deu.edu.tr&sz=64" },
+    { id: 22, name: "İYTE", city: "izmir", lat: 38.323, lng: 26.634, logo: "https://www.google.com/s2/favicons?domain=iyte.edu.tr&sz=64" },
+    { id: 23, name: "İzmir Ekonomi", city: "izmir", lat: 38.389, lng: 27.058, logo: "https://www.google.com/s2/favicons?domain=ieu.edu.tr&sz=64" },
+    { id: 24, name: "Yaşar Üni", city: "izmir", lat: 38.454, lng: 27.200, logo: "https://www.google.com/s2/favicons?domain=yasar.edu.tr&sz=64" },
+    { id: 25, name: "Katip Çelebi", city: "izmir", lat: 38.495, lng: 27.027, logo: "https://www.google.com/s2/favicons?domain=ikcu.edu.tr&sz=64" }
 ];
 
 // --- STATE ---
@@ -73,6 +73,8 @@ let layers = [];
 let tempMarker = null;
 let tempCoords = null;
 let unsubscribe = null; 
+// YENİ: Kullanıcının anlık konumu
+let userRealLocation = null;
 
 // --- BAŞLATMA ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -83,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     map.on('click', (e) => {
-        // Şehir seçiliyse veya GPS modundaysak tıklamaya izin verelim
         if(currentCityKey || document.getElementById('back-btn-area').classList.contains('hidden') === false) {
              handleMapClick(e.latlng);
         }
@@ -99,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = user.displayName || "Misafir Ajan";
             const photo = user.photoURL;
             
-            // ADMIN KONTROLÜ
             if(user.email === ADMIN_EMAIL) {
                 document.getElementById('u-name').innerHTML = `${name} <b style="color:#ff4757">(Yönetici)</b>`;
             } else {
@@ -123,19 +123,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// --- AUTH METODLARI ---
+// --- AUTH ---
 function loginWithGoogle() {
     auth.signInWithPopup(googleProvider).catch((error) => {
         alert("Giriş hatası: " + error.message);
     });
 }
-
 function loginAnonymously() {
     auth.signInAnonymously().catch((error) => {
         alert("Misafir girişi hatası: " + error.message);
     });
 }
-
 function logout() {
     auth.signOut().then(() => {
         location.reload();
@@ -146,22 +144,14 @@ function logout() {
 function resetToTurkey() {
     currentCityKey = null;
     clearMap();
-    
-    // Akışı başlat (Filtre güncellemeli)
     subscribeToAll();
-
     document.getElementById('back-btn-area').classList.add('hidden');
-    
-    // Başlığı filtreye göre güncelle
     let filterText = activeFilter === 'all' ? '' : (activeFilter === 'ask' ? '(Aşk)' : (activeFilter === 'sikayet' ? '(Şikayet)' : '(İtiraf)'));
     document.getElementById('feed-title').innerText = `🔥 Türkiye Geneli ${filterText}`;
-    
     map.flyTo([39.0, 35.5], 6, { duration: 1.5 });
 
     Object.keys(CITIES).forEach(key => {
         const city = CITIES[key];
-        
-        // --- RADAR İKONU ---
         const radarIcon = L.divIcon({
             className: 'custom-div-icon',
             html: `
@@ -174,21 +164,14 @@ function resetToTurkey() {
             iconSize: [40, 40],
             iconAnchor: [20, 20] 
         });
-
         const marker = L.marker(city.coords, { icon: radarIcon }).addTo(map);
-        
         marker.bindTooltip(city.name, { 
-            permanent: true, 
-            direction: 'bottom', 
-            offset: [0, 10],
-            className: 'city-label' 
+            permanent: true, direction: 'bottom', offset: [0, 10], className: 'city-label' 
         });
-
         marker.on('click', (e) => { 
             L.DomEvent.stopPropagation(e); 
             enterCity(key); 
         });
-        
         layers.push(marker);
     });
 }
@@ -197,7 +180,6 @@ function enterCity(key) {
     currentCityKey = key;
     clearMap();
     const city = CITIES[key];
-    
     document.getElementById('back-btn-area').classList.remove('hidden');
     document.getElementById('feed-title').innerText = `${city.name} Kampüsleri`;
     map.flyTo(city.coords, city.zoom, { duration: 1.5 });
@@ -217,7 +199,7 @@ function enterCity(key) {
     subscribeToCity(key);
 }
 
-// --- GPS FONKSİYONU ---
+// --- GPS FONKSİYONU (GÜNCELLENDİ) ---
 function locateUser() {
     if (!navigator.geolocation) {
         alert("Tarayıcınız konum özelliğini desteklemiyor.");
@@ -230,17 +212,24 @@ function locateUser() {
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
             
-            // Haritayı odakla
+            // YENİ: Kullanıcı konumunu kaydet
+            userRealLocation = { lat: lat, lng: lng };
+            
             map.flyTo([lat, lng], 15, { duration: 2 });
             
-            // Mavi nokta koy
             L.circle([lat, lng], {
                 color: '#3388ff', fillColor: '#3388ff', fillOpacity: 0.5, radius: 50
             }).addTo(map).bindPopup("Sen Buradasın!").openPopup();
 
-            // Geri dön butonunu aç
             document.getElementById('back-btn-area').classList.remove('hidden');
             document.getElementById('feed-title').innerText = "📍 Sizin Konumunuz";
+
+            // YENİ: Listeyi yenile ki mesafeler "Sana: X km" olarak güncellensin
+            if(currentCityKey) {
+                subscribeToCity(currentCityKey);
+            } else {
+                subscribeToAll();
+            }
         },
         (error) => { alert("Konum alınamadı: " + error.message); }
     );
@@ -261,13 +250,10 @@ function subscribeToAll() {
         snapshot.forEach((doc) => {
             const item = doc.data();
             item.id = doc.id;
-            
             if (activeFilter !== 'all' && item.cat !== activeFilter) return;
-
             data.push(item);
             renderCard(item);
         });
-        
         if (data.length === 0) list.innerHTML = '<div class="empty-state">Bu kategoride henüz ses yok...</div>';
     });
 }
@@ -283,36 +269,44 @@ function subscribeToCity(cityKey) {
     unsubscribe = query.onSnapshot((snapshot) => {
         list.innerHTML = "";
         const data = [];
-
         snapshot.forEach((doc) => {
             const item = doc.data();
             item.id = doc.id;
-            
             if (activeFilter !== 'all' && item.cat !== activeFilter) return;
-
             data.push(item);
             renderCard(item);
             addMapMarker(item);
         });
-
         if (data.length === 0) list.innerHTML = '<div class="empty-state">Henüz veri yok. İlk sen yaz!</div>';
         if(isHeatmapActive) updateHeatmap(data);
     });
 }
 
+// --- KART OLUŞTURMA (MESAFE HESABI DÜZELTİLDİ) ---
 function renderCard(item) {
     const list = document.getElementById('feed-list');
     const uni = UNIVERSITIES.find(u => u.name === item.uniName);
     
+    // YENİ: MESAFE MANTIĞI
     let distStr = "";
-    if(uni) {
+    if(userRealLocation) {
+        // Kullanıcı GPS açmışsa, ONA olan uzaklığı hesapla
+        const dist = getDistanceFromLatLonInKm(item.lat, item.lng, userRealLocation.lat, userRealLocation.lng);
+        distStr = `<span class="dist-badge" style="color:#00d2d3; border-color:#00d2d3">Sana: ${dist.toFixed(2)} km</span>`;
+    } else if(uni) {
+        // GPS kapalıysa Kampüse olan uzaklığı göster (Varsayılan)
         const dist = getDistanceFromLatLonInKm(item.lat, item.lng, uni.lat, uni.lng);
-        distStr = `<span class="dist-badge">${dist.toFixed(2)} km</span>`;
+        distStr = `<span class="dist-badge">Kampüse: ${dist.toFixed(2)} km</span>`;
     }
 
     let hotBadge = "";
     if (item.likes >= 5) {
         hotBadge = `<span style="color:#ff6b6b; margin-right:5px;" title="Popüler!"><i class="fa-solid fa-fire"></i></span>`;
+    }
+
+    let uniLogoHTML = "";
+    if(uni && uni.logo) {
+        uniLogoHTML = `<img src="${uni.logo}" class="uni-logo-small" alt="logo" onerror="this.style.display='none'">`;
     }
 
     let deleteBtnHTML = "";
@@ -332,7 +326,10 @@ function renderCard(item) {
     div.innerHTML = `
         ${deleteBtnHTML}
         <div class="card-header">
-            <span>${hotBadge}<span class="uni-tag">${item.uniName}</span></span>
+            <div style="display:flex; align-items:center;">
+                ${uniLogoHTML}
+                <span>${hotBadge}<span class="uni-tag">${item.uniName}</span></span>
+            </div>
             <span>${timeAgo(item.createdAt)}</span>
         </div>
         <div class="location-detail">
@@ -359,10 +356,8 @@ function renderCard(item) {
             tempMarker = L.marker([item.lat, item.lng], {icon: icon}).addTo(map);
             tempMarker.bindPopup(`<div style="text-align:center"><b style="color:${color}">${item.detail}</b><br>${item.text}</div>`).openPopup();
         }
-        
         map.flyTo([item.lat, item.lng], 18);
     };
-    
     list.appendChild(div);
 }
 
@@ -373,7 +368,6 @@ function addMapMarker(item) {
         html: `<div class="confess-pin" style="background:${color}"><i class="fa-solid fa-comment"></i></div>`, 
         iconSize: [32, 32], iconAnchor: [16, 32], popupAnchor: [0, -35] 
     });
-    
     const m = L.marker([item.lat, item.lng], { icon: icon }).addTo(map);
     m.bindPopup(`<div style="text-align:center"><b style="color:${color}">${item.detail}</b><br>${item.text}<br><small>${item.userName}</small></div>`);
     layers.push(m);
@@ -387,17 +381,23 @@ function handleMapClick(latlng) {
     document.getElementById('confess-modal').classList.remove('hidden');
     document.getElementById('target-uni-name').innerText = nearest.name;
     document.getElementById('coords-text').innerText = `${latlng.lat.toFixed(5)}, ${latlng.lng.toFixed(5)}`;
+    
+    // Modal Logosu
+    const modalLogo = document.getElementById('modal-uni-logo');
+    if(nearest.logo) {
+        modalLogo.src = nearest.logo;
+        modalLogo.classList.remove('hidden'); 
+    } else {
+        modalLogo.classList.add('hidden'); 
+    }
 }
 
 function submitConfession() {
     const text = document.getElementById('confess-text').value;
     const detail = document.getElementById('location-detail').value;
     const cat = document.querySelector('input[name="cat"]:checked').value;
-
     if(!text) return alert("Boş bırakma!");
-
     const nearest = findNearestUni(tempCoords.lat, tempCoords.lng);
-    
     db.collection("confessions").add({
         text: text,
         detail: detail || "Kampüs Çevresi",
@@ -430,25 +430,13 @@ function toggleLike(docId, event) {
     docRef.update({ likes: firebase.firestore.FieldValue.increment(1) });
 }
 
-// --- FİLTRELEME BUTONU ---
+// --- YARDIMCILAR ---
 function toggleFilter(f) { 
     activeFilter = f; 
-    
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); 
     document.getElementById(`btn-${f}`).classList.add('active'); 
-    
-    // Hangi moddaysak onu yenile
-    if(currentCityKey) {
-        subscribeToCity(currentCityKey);
-    } else {
-        subscribeToAll(); // Türkiye genelindeyken de listeyi yenile
-        
-        // Başlığı güncelle
-        let filterText = activeFilter === 'all' ? '' : (activeFilter === 'ask' ? '(Aşk)' : (activeFilter === 'sikayet' ? '(Şikayet)' : '(İtiraf)'));
-        document.getElementById('feed-title').innerText = `🔥 Türkiye Geneli ${filterText}`;
-    }
+    if(currentCityKey) subscribeToCity(currentCityKey); else subscribeToAll(); 
 }
-
 function toggleHeatmap() { 
     isHeatmapActive = document.getElementById('heatmap-check').checked;
     if(currentCityKey) subscribeToCity(currentCityKey); 
@@ -484,3 +472,22 @@ function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
 }
 function clearMap() { layers.forEach(l => map.removeLayer(l)); layers = []; if(heatLayer) { map.removeLayer(heatLayer); heatLayer = null; } }
 function closeModal() { document.getElementById('confess-modal').classList.add('hidden'); if(tempMarker) map.removeLayer(tempMarker); document.getElementById('confess-text').value = ''; document.getElementById('location-detail').value = ''; }
+
+// ... (Mevcut kodların en altı) ...
+
+// --- YENİ: KÜNYE FONKSİYONLARI ---
+function openCredits() {
+    document.getElementById('credits-modal').classList.remove('hidden');
+}
+
+function closeCredits() {
+    document.getElementById('credits-modal').classList.add('hidden');
+}
+
+// Modal dışına tıklayınca kapatma özelliği (UX için)
+window.onclick = function(event) {
+    const m1 = document.getElementById('confess-modal');
+    const m2 = document.getElementById('credits-modal');
+    if (event.target === m1) closeModal();
+    if (event.target === m2) closeCredits();
+}
